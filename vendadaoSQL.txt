@@ -1,0 +1,24 @@
+CREATE TABLE venda(
+  idvenda INT AUTO_INCREMENT,
+  valor float NOT NULL,
+  datahora DATETIME NOT NULL,
+  PRIMARY KEY (idvenda)
+  );
+
+CREATE TABLE produto(
+  idproduto INT NOT NULL AUTO_INCREMENT,
+  valor VARCHAR(45) NOT NULL,
+  nome VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idproduto)
+  );
+
+CREATE TABLE item(
+  iditem INT NOT NULL AUTO_INCREMENT,
+  qtd VARCHAR(45) NOT NULL,
+  valor VARCHAR(45) NOT NULL,
+  IDPROD INT, 
+  IDV INT,
+  PRIMARY KEY (iditem),
+  FOREIGN KEY (IDPROD) REFERENCES produto(idproduto),
+  FOREIGN KEY (IDV) REFERENCES venda(idvenda)
+);
